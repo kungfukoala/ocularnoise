@@ -1,0 +1,105 @@
+.masthead {
+  @include clearfix();
+  margin-bottom:3em;
+}
+.logo {
+  margin-top:-16px;
+  @include media(">medium", "<x-large") {
+    float:right;
+    margin-top:-20px;
+  }
+}
+.logo-mark {
+  text-align:center;
+}
+.logo-type {
+  font-family:"rogue-sans-ext";
+  font-size:2.34em;
+  font-weight:700;
+  letter-spacing:1px;
+  a {
+    color:$secondary;
+    &:hover {
+      color:$action-color;
+    }
+  }
+  @include media(">medium", "<x-large") {
+    font-size:45px;
+  }
+}
+.tagline {
+  color:$green;
+}
+.navigation {
+  @include column(1/1);
+  margin-top:2em;
+}
+.filter-by {
+  @include column(1/1);
+  margin-bottom:0.25em;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border-bottom:3px solid $base-border-color;
+}
+.nav-tab {
+  @include column(1/1);
+  @include media(">medium") {
+    @include column(1/2, $cycle: 2, $gutter: 7);
+  }
+}
+/*!
+ * jQuery Accordion 0.0.1
+ * (c) 2014 Victor Fernandez <victor@vctrfrnndz.com>
+ * MIT Licensed.
+ */
+
+/* Requirements */
+
+[data-accordion] [data-content] {
+    overflow: hidden;
+    max-height: 0;
+}
+
+/* Basic Theme */
+
+[data-accordion] {
+    line-height: 1;
+}
+
+[data-control],
+[data-content] > * {
+    border-bottom: 1px solid #888;
+    padding: 10px 0px 10px 0px;
+}
+
+[data-content] [data-accordion] {
+    border: 0;
+    padding: 0;
+}
+
+[data-accordion] [data-control] {
+    position: relative;
+    padding-right: 40px;
+}
+
+[data-accordion] > [data-control]:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 25px;
+    font-weight: 200;
+    color: #444;
+    height: 15px;
+    width: 24px;
+    background: url('../images/down.png') center center no-repeat;
+    background-size: 50%;
+}
+
+[data-accordion].open > [data-control]:after {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}

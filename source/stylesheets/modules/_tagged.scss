@@ -1,0 +1,36 @@
+$tagged-font-size:1em;
+$tagged-padding:8px;
+$tagged-margin:3em;
+$tagged-border-size:5px;
+$tagged-border-center-size:3px;
+$tagged-border-style:solid;
+$tagged-border-color:$light-gray;
+
+.covers-tagged {
+  li {
+    float:left;
+    margin-bottom:$tagged-margin;
+    h3 {
+      font-size:$tagged-font-size;
+      padding:$tagged-padding;
+      margin:0;
+      text-transform:uppercase;
+    }
+  }
+  .covers-tagged-title, .covers-tagged-tag, .covers-tagged-return {
+    border-top:$tagged-border-size $tagged-border-style $tagged-border-color;
+    border-bottom:$tagged-border-size $tagged-border-style $tagged-border-color;
+    // border-right:$covers-tagged-border;
+  }
+  .covers-tagged-title {
+    border-right:$tagged-border-center-size $tagged-border-style $tagged-border-color;
+  }
+  .covers-tagged-tag {
+    border-right:$tagged-border-size $tagged-border-style $tagged-border-color;
+  }
+  .covers-tagged-return {
+    a { color:black; }
+    border-left:$tagged-border-size $tagged-border-style $tagged-border-color;
+    border-right:$tagged-border-center-size $tagged-border-style $tagged-border-color;
+  }
+}

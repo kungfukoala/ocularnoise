@@ -1,0 +1,10 @@
+---
+title:         Live-Evil
+date:          2017-01-11
+photo:         "LiveEvil-MilesDavis.jpg"
+tags:          jazz, illustration
+---
+- **Musician** Miles Davis
+- **Artist** Mati Klarwein
+- **Record Label** Columbia Records
+- **Year** 1971

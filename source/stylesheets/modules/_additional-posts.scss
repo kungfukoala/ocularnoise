@@ -1,0 +1,15 @@
+.additional-posts {
+  margin-top:1em;
+  .post {
+    @include column(1/1);
+    margin-bottom:2em;
+    @include media(">medium") {
+      @include column(1/1);
+      margin-bottom:2em;
+    }
+    @include media(">large") {
+      @include column(1/3);
+      margin-bottom:2em;
+    }
+  }
+}

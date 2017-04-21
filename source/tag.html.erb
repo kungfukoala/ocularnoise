@@ -1,0 +1,11 @@
+---
+pageable: true
+per_page: 12
+---
+  <ul class="covers-tagged">
+    <li class="covers-tagged-return"><h3><%= link_to "&#8676;", '/' %></h3></li>
+    <li class="covers-tagged-title"><h3>Articles tagged</h3></li>
+    <li class="covers-tagged-tag"><h3><%= tagname %></h3></li>
+  </ul>
+  <%= partial "partials/loop" %>
+  <%= partial "partials/pagination" %>

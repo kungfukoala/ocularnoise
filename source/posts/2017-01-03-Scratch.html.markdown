@@ -1,0 +1,11 @@
+---
+title:         Peter Gabriel - Scratch
+date:          2017-01-03
+photo:         "petergabriel-scratch.jpg"
+tags:          rock, photograph
+---
+- **Musician** Peter Gabriel
+- **Designer** Hipgnosis
+- **Photograph** Hipgnosis
+- **Record Label** Atlantic
+- **Year** 1978

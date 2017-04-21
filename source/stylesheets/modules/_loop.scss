@@ -1,0 +1,31 @@
+$title-size:40px;
+$spacing-bottom: 4em;
+
+.posts {
+  @include clearfix();
+  .post {
+    @include stack();
+    margin-bottom:$spacing-bottom;
+    strong {
+      text-transform:uppercase;
+      font-size:11px;
+      border-bottom:1px dotted $base-border-color;
+      display:block;
+      margin-top:8px;
+    }
+    .post-title a, a:visited {
+      font-size:$title-size;
+      color:$secondary;
+      text-transform:uppercase;
+      &:hover {
+        border-bottom: 2px solid $base-border-color;
+      }
+    }
+    @include media(">medium", "<x-large") {
+      @include column(1/2, $cycle: 2, $gutter: 7);
+    }
+    @include media(">x-large") {
+      @include column(1/4, $cycle: 4, $gutter: 4);
+    }
+  }
+}

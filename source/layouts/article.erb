@@ -1,0 +1,28 @@
+<% wrap_layout :layout do %>
+<section class="article-page">
+  <div class="article-page-album">
+    <%= image_tag(current_page.data.photo) %>
+  </div>
+  <div class="article-page-details">
+    <h1><%= current_page.title %></h1>
+    <time>Posted <%= current_page.date.strftime('%b %e') %></time>
+    <%= yield %>
+    <ol>
+      <strong>Filed Under</strong>
+      <% current_page.tags.each do |tag| %>
+        <li><%= link_to "#{tag}".titleize, tag_path(tag) %></li>
+      <% end %>
+    </ol>
+  </div>
+</section>
+<ul class="additional-posts">
+  <li><h5>ADDITIONAL COVERS</h5></li>
+  <% blog.articles.shuffle[0...3].each do |article| %>
+  <li class="post">
+    <article>
+      <%= link_to image_tag(article.data.photo), article %>
+    </article>
+  </li>
+  <% end %>
+</ul>
+<% end %>

@@ -1,0 +1,33 @@
+// Individual Post page
+.article-page {
+  @include clearfix;
+}
+.article-page-album {
+  @include column(1/1);
+  margin-bottom:2em;
+  @include media(">medium") {
+    @include column(8/12);
+  }
+}
+.article-page-details {
+  @include column(1/1);
+  @include media(">medium") {
+    @include column(4/12);
+  }
+  strong {
+    text-transform:uppercase;
+    font-size:11px;
+    border-bottom:1px dotted $base-border-color;
+    display:block;
+    margin-top:8px;
+    // color:$light-gray;
+  }
+  time {
+    @include span(1/1);
+    margin-top:20px;
+    margin-bottom:5px;
+    color:$light-gray;
+    @extend .small;
+    text-align:right;
+  }
+}

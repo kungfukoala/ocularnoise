@@ -1,0 +1,33 @@
+# humans.txt content - more information here: http://humanstxt.org/
+team:
+  - name: Benjamin Kinzer
+    role: Design and Development
+    contact: http://benjaminkinzer.com
+
+shoutouts:
+
+languages:
+  - English
+
+standards_used:
+  - CSS3
+  - HTML5
+  - JavaScript
+
+components_used:
+  - Middleman
+  - JQuery
+  - Modernizr
+  - HTML5 Boilerplate
+  - Normalize
+  - SASS
+  - Include Media
+  - Jeet
+  - Bourbon
+  - Github Pages
+
+fonts_used:
+  - Helvetica
+
+software_used:
+  - Atom

@@ -1,0 +1,11 @@
+<section class="posts">
+<% page_articles.each_with_index do |article, i| %>
+  <div class="post">
+    <%= link_to image_tag(article.data.photo, :alt => article.title, :class => "post-image"), article %>
+    <header class="post-header">
+      <h4 class="post-title"><%= link_to article.title, article %></h4>
+    </header>
+    <%= article.body %>
+  </div>
+  <% end %>
+</section>

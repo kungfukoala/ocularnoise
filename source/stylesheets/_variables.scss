@@ -1,0 +1,82 @@
+// GRID
+$jeet: (
+  gutter: 4,
+  max-width:100%,
+);
+
+// Breakpoints
+$breakpoints: (small: 320px, medium: 680px, large: 1000px, x-large: 1600px);
+
+// Margins
+$site-margin: 60px;
+$site-mobile-margin: 30px;
+
+// Typography
+$base-font-family: "ratio", $font-stack-system;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+//
+//
+// COLORS
+//
+// PRIMARY COLORS
+$light-gray:        #E7EBEB;
+$midnight:          #251329;
+// Secondary
+$red:               #FB1D44;
+$green:             #3AB705;
+$lime:              #C6D20E;
+$blue:              #0388D3;
+// Monotone
+$dark-gray:         #333;
+$medium-gray:       #999;
+// Color List .bg-color .color .border-color
+$colors: (
+  $light-gray 'light-gray',
+  $midnight 'midnight',
+  $red 'red',
+  $green 'green',
+  $lime 'lime',
+  $blue 'blue',
+  $dark-gray 'dark-gray',
+  $dark-gray 'medium-gray',
+);
+// Base Colors
+$primary:           $light-gray;
+$secondary:         $midnight;
+$tertiary:          $green;
+// Font Colors
+$base-font-color:   $secondary;
+$action-color:      $tertiary;
+
+// Border
+$base-border-color: $secondary;
+$base-border:       1px solid $base-border-color;
+
+// Background Colors
+$base-background-color:        $primary;
+$secondary-background-color:   tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// Asset Paths
+$font-assetpath: "/fonts/";

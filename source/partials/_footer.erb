@@ -1,0 +1,48 @@
+<footer class="site-footer">
+  <section>
+    <div class="footer-logo">
+      <div class="logo-type"><%= link_to "OCULAR NOISE", '/' %></div>
+    </div>
+    <div class="footer-info">
+      <ul class="footer-about">
+        <li><h5>About</h5></li>
+        <li>Ocular Noise is a curated showcase of music album artwork.</li>
+        <li>Credits displayed wrong? Found a bug? Leave us a <a href="https://github.com/ocularnoise/ocularnoise.github.io/issues/new">message</a> and we will address the issue.
+      </ul>
+      <ul class="footer-recent">
+        <li><h5>Recent Covers</h5></li>
+        <% blog.articles[0...3].each do |article| %>
+        <li>
+            <%= link_to article.title, article %>
+        </li>
+        <% end %>
+      </ul>
+      <ul class="footer-social">
+        <li><h5>Follow us</h5></li>
+        <li><a href="https://www.instagram.com/ocularnoise/" target="_blank"><span class="icon-instagram">Instagram</span></a></li>
+        <li><a href="https://twitter.com/ocularnoise" target="_blank"><span class="icon-twitter">Twitter</span></a></li>
+        <li><a href="https://www.facebook.com/Ocular-Noise-1004856482978093/" target="_blank"><span class="icon-facebook">Facebook</span></a></li>
+      </ul>
+    </div>
+    <div class="copyright">Copyright &copy; <%= Time.now.strftime('%Y') %> Benjamin Kinzer - All covers &copy; of their respective owners.</div>
+  </section>
+</footer>
+<script type="text/javascript">
+   $(document).ready(function() {
+     $('#navigation [data-accordion]').accordion({
+       singleOpen: false,
+       transitionEasing: 'cubic-bezier(0.455, 0.030, 0.515, 0.955)',
+       transitionSpeed: 200
+     });
+   });
+</script>
+<% if build? %>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-857352-6', 'auto');
+  ga('send', 'pageview');
+  </script>
+<% end %>

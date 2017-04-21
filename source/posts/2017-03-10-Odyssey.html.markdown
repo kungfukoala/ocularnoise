@@ -1,0 +1,11 @@
+---
+title:            Odyssey
+date:             2017-03-10
+photo:            "Odyssey-Murlo.jpg"
+tags:             electronic, illustration
+---
+
+- **Musician** Murlo
+- **Illustrator** Unknown
+- **Record Label** Mixpak
+- **Year** 2017

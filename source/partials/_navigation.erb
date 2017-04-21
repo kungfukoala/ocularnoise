@@ -1,0 +1,25 @@
+<div id="navigation" class="navigation" data-accordion-group>
+  <div class="filter-by">filter by</div>
+  <div data-accordion-group>
+    <div class="nav-tab" data-accordion>
+      <div data-control>Genre</div>
+      <ul data-content>
+        <% data.genres.tags.each do |g| %>
+          <li>
+            <%= link_to g, tag_path(g) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="nav-tab" data-accordion>
+      <div data-control>Medium</div>
+      <div data-content>
+        <% data.medium.tags.each do |m| %>
+          <div>
+            <%= link_to m, tag_path(m) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

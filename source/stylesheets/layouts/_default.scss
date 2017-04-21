@@ -1,0 +1,7 @@
+body {
+  margin:0 $site-mobile-margin;
+  @include media(">medium") {
+    margin:0 $site-margin;
+  }
+  background-color:$base-background-color;
+}

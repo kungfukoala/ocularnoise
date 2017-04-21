@@ -1,0 +1,10 @@
+---
+title:         Us Three
+date:          2017-01-13
+photo:         "UsThree-HoraceParlan.jpg"
+tags:          jazz, typography
+---
+- **Musicians** Horace Parlan, Al Harewood and George Tucker
+- **Design** Reid Miles
+- **Record Label** Blue Note Records
+- **Year** 1960

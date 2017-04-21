@@ -1,0 +1,36 @@
+.accordion-tabs {
+  @include column(1/1);
+  $large-screen: 50em !default;
+  @include clearfix;
+  padding: 0;
+  .tab-header-and-content {
+    list-style: none;
+    @include media(">large") {
+      display: inline;
+    }
+  }
+  .tab-link {
+    display: block;
+    padding-right: 1em;
+    @include media(">large") {
+      display: inline-block;
+    }
+  }
+  .is-active {
+    color: #ff0000;
+  }
+  .tab-content {
+    display: none;
+    width: 100%;
+    @include media(">large") {
+      float: left;
+    }
+  }
+}
+
+.tag-links {
+  li {
+    @include column(1/4);
+    margin-bottom:2em;
+  }
+}
