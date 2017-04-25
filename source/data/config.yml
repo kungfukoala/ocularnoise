@@ -1,0 +1,24 @@
+# Site wide settings
+site:
+  root_url: http://www.ocularnoise.com
+  title: Ocular Noise
+  title_separator: " &mdash; "
+  meta_description: Ocular Noise is a curated showcase of music album artwork.
+  meta_keywords:
+    - design
+    - album covers
+    - album artwork
+    - typography
+    - album typography
+    - music album typography
+    - music album artwork
+    - record covers
+  author: Benjamin Kinzer
+  active_navigation_item_class: current
+  analytics_id: UA-XXXXXXX-XX
+
+# Author of CSS & JavaScript
+source:
+  author:
+    name: Benjamin Kinzer
+    uri: http://www.benjaminkinzer.com
