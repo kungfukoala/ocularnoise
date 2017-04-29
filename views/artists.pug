@@ -1,0 +1,11 @@
+extends ./layout.pug
+
+block title
+  title !{artist.getText("artists.name")}
+
+block body
+  body.page
+
+        h1(data-wio-id=artist.id)
+          != artist.getText('artists.name') || 'Untitled'
+        

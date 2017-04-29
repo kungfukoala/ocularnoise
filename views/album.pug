@@ -1,23 +1,22 @@
 extends ./layout.pug
 
 block title
-  title !{home.getText("home.title")}
+  title !{album.getText("album.title")}
 
 block body
   body.page
-
-    div.home
-      h1.title !{home.getText('home.title')}
     
-        section.main
-          for album in albums
+        h1(data-wio-id=album.id)
+          != album.getText('album.title') || 'Untitled'
+        
+          section.main
             div.album(data-wio-id=album.id)
               - var imageUrl = album.getImage('album.album-cover').url
               - var albumTitle = album.getText('album.title') || 'Untitled'
+
               img(src=imageUrl alt=albumTitle)
               h2
-                a(href=ctx.linkResolver(album))
-                  != albumTitle
+                != albumTitle
                 | by
                 a(href=album.getLink('album.musician').url(ctx.linkResolver))
                   Click Here

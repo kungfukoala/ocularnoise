@@ -80,3 +80,45 @@ app.get(['/', '/album'], (req, res) =>
     }
   })
 );
+
+/**
+* Route for album posts
+*/
+app.get('/album/:uid', (req, res) => {
+
+  // Define the uid from the url
+  var uid = req.params.uid;
+
+  // Query the post by its uid
+  req.prismic.api.getByUID('album', uid).then(album => {
+
+    if(album) {
+      // If a document is returned, render the post
+      res.render('album', {album: album});
+    } else {
+      // Else give an error
+      res.status(404).send('Not found');
+    }
+  });
+});
+
+/**
+* Route for artist page
+*/
+app.get('/artist/:uid', (req, res) => {
+
+  // Define the uid from the url
+  var uid = req.params.uid;
+
+  // Query the post by its uid
+  req.prismic.api.getByUID('artists', uid).then(artist => {
+
+    if(artist) {
+      // If a document is returned, render the post
+      res.render('artists', {artist: artist});
+    } else {
+      // Else give an error
+      res.status(404).send('Not found');
+    }
+  });
+});

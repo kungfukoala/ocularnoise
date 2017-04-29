@@ -13,11 +13,14 @@ module.exports = {
   // This function will be used to generate links to Prismic.io documents
   // As your project grows, you should update this function according to your routes
   linkResolver: function(doc, ctx) {
-    if (doc.type == 'album') {
+    if (doc.type == 'albums') {
       return '/album';
     }
     if (doc.type == 'album') {
       return '/album/' + encodeURIComponent(doc.uid);
+    }
+    if (doc.type == 'artists') {
+      return '/artist/' + encodeURIComponent(doc.uid);
     }
     return '/';
   }
