@@ -58,7 +58,8 @@ app.get(['/', '/album'], (req, res) =>
 
       var queryOptions = {
         page: req.params.p || '1',
-        orderings: '[my.album.date desc]'
+        orderings: '[my.album.date desc]',
+        fetchLinks: 'artists.name'
       };
 
       // Query the posts

@@ -13,10 +13,11 @@ block body
             div.album(data-wio-id=album.id)
               - var imageUrl = album.getImage('album.album-cover').url
               - var albumTitle = album.getText('album.title') || 'Untitled'
-
+              - var artist = album.getLink('album.musician');
+              - var artistName = artist.getText('artists.name');
               img(src=imageUrl alt=albumTitle)
               h2
                 != albumTitle
                 | by
                 a(href=album.getLink('album.musician').url(ctx.linkResolver))
-                  Click Here
+                  != artistName
