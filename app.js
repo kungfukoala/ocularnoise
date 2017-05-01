@@ -90,8 +90,9 @@ app.get('/album/:uid', (req, res) => {
   // Define the uid from the url
   var uid = req.params.uid;
 
+
   // Query the post by its uid
-  req.prismic.api.getByUID('album', uid).then(album => {
+  req.prismic.api.getByUID('album', uid, {'fetchLinks': 'artists.name'}).then(album => {
 
     if(album) {
       // If a document is returned, render the post
