@@ -23,3 +23,11 @@ block body
                 | by
                 a(href=album.getLink('album.musician').url(ctx.linkResolver))
                   != artistName
+              ul
+                each credit in album.getGroup('album.credits').toArray()
+                  - var creditLink = credit.getLink('link');
+                  - var creditName = creditLink.getText('artists.name');
+                  li
+                    a(href=credit.getLink('link').url(ctx.linkResolver))
+                      != credit.getText("label")
+                      != creditName

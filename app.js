@@ -62,9 +62,12 @@ app.get(['/', '/album'], (req, res) =>
         fetchLinks: 'artists.name'
       };
 
+      // var terms = req.query.terms;
+
       // Query the posts
       return req.prismic.api.query(
         prismic.Predicates.at("document.type", "album"),
+        // prismic.Predicates.fulltext("document", terms),
         queryOptions
       ).then(function(response) {
 
@@ -89,7 +92,6 @@ app.get('/album/:uid', (req, res) => {
 
   // Define the uid from the url
   var uid = req.params.uid;
-
 
   // Query the post by its uid
   req.prismic.api.getByUID('album', uid, {'fetchLinks': 'artists.name'}).then(album => {
