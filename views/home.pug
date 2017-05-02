@@ -11,23 +11,4 @@ block body
     
         section.main
           for album in albums
-            div.album(data-wio-id=album.id)
-              - var imageUrl = album.getImage('album.album-cover').url
-              - var albumTitle = album.getText('album.title') || 'Untitled'
-              - var artist = album.getLink('album.musician');
-              - var artistName = artist.getText('artists.name');
-              img(src=imageUrl alt=albumTitle)
-              h2
-                a(href=ctx.linkResolver(album))
-                  != albumTitle
-                | by
-                a(href=album.getLink('album.musician').url(ctx.linkResolver))
-                  != artistName
-              ul
-                each credit in album.getGroup('album.credits').toArray()
-                  - var creditLink = credit.getLink('link');
-                  - var creditName = creditLink.getText('artists.name');
-                  li
-                    a(href=credit.getLink('link').url(ctx.linkResolver))
-                      != credit.getText("label")
-                      != creditName
+            include partials/post.pug
