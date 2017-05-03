@@ -18,3 +18,21 @@ div.album(data-wio-id=album.id)
         a(href=credit.getLink('link').url(ctx.linkResolver))
           != credit.getText("label")
           != creditName
+    li
+      != album.getText('album.record-label') || 'Untitled'
+    li
+      != album.getText('album.year') || 'Untitled'
+    
+    each medium in album.getGroup('album.mediums').toArray()
+      - var mediumLink = medium.getLink('link');
+      - var mediumName = mediumLink.getText('mediums.name');
+      li
+        a(href=medium.getLink('link').url(ctx.linkResolver))
+          != mediumName
+
+    each genre in album.getGroup('album.genres').toArray()
+      - var genreLink = genre.getLink('link');
+      - var genreName = genreLink.getText('genres.name');
+      li
+        a(href=genre.getLink('link').url(ctx.linkResolver))
+          != genreName
