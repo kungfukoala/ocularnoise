@@ -100,6 +100,11 @@ app.get('/album/:uid', (req, res) => {
   // Query the post by its uid
   req.prismic.api.getByUID('album', uid, queryOptions).then(album => {
 
+    // Render the 404 page if this uid is found
+    if (!album) {
+      render404(req, res);
+    }
+
     if(album) {
       // If a document is returned, render the post
       res.render('album', {album: album});
@@ -120,6 +125,11 @@ app.get('/artist/:uid', (req, res) => {
 
   // Query the post by its uid
   req.prismic.api.getByUID('artists', uid).then(artist => {
+
+    // Render the 404 page if this uid is found
+    if (!artist) {
+      render404(req, res);
+    }
 
     if(artist) {
       // If a document is returned, render the post
@@ -161,4 +171,9 @@ app.route('/category/:uid').get(function(req, res) {
       res.render('category', {albums: albums.results});
     });
   });
+});
+
+// Route that catches any other url and renders the 404 page
+app.route('/:url').get(function(req, res) {
+  render404(req, res);
 });
