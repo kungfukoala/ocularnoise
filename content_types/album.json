@@ -1,0 +1,106 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Album Title"
+      }
+    },
+    "musician" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "artists" ],
+        "label" : "Musician"
+      }
+    },
+    "album-cover" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : null,
+          "height" : null
+        },
+        "thumbnails" : [ {
+          "name" : "mobile",
+          "width" : 400,
+          "height" : 400
+        }, {
+          "name" : "desktop",
+          "width" : 800,
+          "height" : 800
+        } ],
+        "label" : "Album Cover"
+      }
+    },
+    "credits" : {
+      "config" : {
+        "fields" : {
+          "link" : {
+            "config" : {
+              "label" : "Link"
+            },
+            "type" : "Link"
+          },
+          "label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Label",
+              "placeholder" : "Illustrator, Designer, or Photographer...."
+            }
+          }
+        },
+        "label" : "credits"
+      },
+      "type" : "Group"
+    },
+    "record-label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Record Label"
+      }
+    },
+    "year" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Year"
+      }
+    },
+    "mediums" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "link" : {
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "mediums" ],
+              "label" : "Medium of Artwork"
+            },
+            "type" : "Link"
+          }
+        }
+      }
+    },
+    "genres" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "link" : {
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "genres" ],
+              "label" : "Genre of Music"
+            },
+            "type" : "Link"
+          }
+        }
+      }
+    }
+  }
+}

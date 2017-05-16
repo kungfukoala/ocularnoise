@@ -23,10 +23,7 @@ module.exports = {
       return '/artist/' + encodeURIComponent(doc.uid);
     }
     if (doc.type == 'mediums') {
-      return '/category/' + encodeURIComponent(doc.uid);
-    }
-    if (doc.type == 'genres') {
-      return '/category/' + encodeURIComponent(doc.uid);
+      return '/mediums/' + encodeURIComponent(doc.uid);
     }
     return '/';
   }

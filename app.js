@@ -13,6 +13,11 @@ app.listen(PORT, function() {
   console.log('Point your browser to http://localhost:' + PORT);
 });
 
+function render404(req, res) {
+  res.status(404);
+  res.render('404');
+}
+
 /**
 * Middleware to connect to the prismic.io API
 */
@@ -53,35 +58,28 @@ app.get(['/', '/album'], (req, res) =>
   // Query the homepage
   req.prismic.api.getSingle("home").then(home => {
 
-    // If a document is returned...
-    if(home) {
-
-      var queryOptions = {
-        page: req.params.p || '1',
-        orderings: '[my.album.date desc]',
-        fetchLinks: 'artists.name, mediums.name, genres.name'
-      };
-
-      // var terms = req.query.terms;
-
-      // Query the posts
-      return req.prismic.api.query(
-        prismic.Predicates.at("document.type", "album"),
-        // prismic.Predicates.fulltext("document", terms),
-        queryOptions
-      ).then(function(response) {
-
-        // Render the blog homepage
-        res.render('home', {
-          home,
-          albums: response.results
-        });
-      });
-
-    } else {
-      // If a bloghome document is not returned, give an error
-      res.status(404).send('Not found');
+    if (!home) {
+      render404(req, res);
     }
+
+    var queryOptions = {
+      page: req.params.p || '1',
+      orderings: '[my.album.date desc]',
+      fetchLinks: 'artists.name, mediums.name, genres.name'
+    };
+
+    // Query the posts
+    return req.prismic.api.query(
+      prismic.Predicates.at("document.type", "album"),
+      queryOptions
+    ).then(function(response) {
+
+      // Render the blog homepage
+      res.render('home', {
+        home,
+        albums: response.results
+      });
+    });
   })
 );
 
@@ -90,28 +88,19 @@ app.get(['/', '/album'], (req, res) =>
 */
 app.get('/album/:uid', (req, res) => {
 
-  // Define the uid from the url
   var uid = req.params.uid;
 
   var queryOptions = {
     fetchLinks: 'artists.name, mediums.name, genres.name'
   };
 
-  // Query the post by its uid
   req.prismic.api.getByUID('album', uid, queryOptions).then(album => {
 
-    // Render the 404 page if this uid is found
     if (!album) {
       render404(req, res);
     }
 
-    if(album) {
-      // If a document is returned, render the post
-      res.render('album', {album: album});
-    } else {
-      // Else give an error
-      res.status(404).send('Not found');
-    }
+    res.render('album', {album: album});
   });
 });
 
@@ -120,60 +109,52 @@ app.get('/album/:uid', (req, res) => {
 */
 app.get('/artist/:uid', (req, res) => {
 
-  // Define the uid from the url
   var uid = req.params.uid;
 
-  // Query the post by its uid
   req.prismic.api.getByUID('artists', uid).then(artist => {
 
-    // Render the 404 page if this uid is found
     if (!artist) {
       render404(req, res);
     }
 
-    if(artist) {
-      // If a document is returned, render the post
-      res.render('artists', {artist: artist});
-    } else {
-      // Else give an error
-      res.status(404).send('Not found');
-    }
+    res.render('artists', {artist: artist});
   });
 });
 
-// Route for categories
-app.route('/category/:uid').get(function(req, res) {
+// Route for Mediums
+app.route('/mediums/:uid').get(function(req, res) {
 
-  // Define the UID from the url
+  // Define the UID EX. Typography
   var uid = req.params.uid;
 
-  // Query the category by its UID
-  req.prismic.api.getByUID('category', uid).then(function(category) {
+  // Query the Medium by UID EX. Typography
+  req.prismic.api.getByUID('mediums', uid).then(function(medium) {
 
-    // Render the 404 page if this uid is found
-    if (!category) {
+    // Render the 404 if the UID is not found
+    if (!medium) {
       render404(req, res);
     }
 
-    // Define the category ID
-    var mediumID = mediums.id;
-    var genreID = genres.id;
+    // Define the ID
+    var mediumID = medium.id;
 
-    // Query all the products linked to the given category ID
+    // Query
     req.prismic.api.query([
-        Prismic.Predicates.at('document.type', 'album'),
-        Prismic.Predicates.at('my.album.mediums.link', mediumID),
-        Prismic.Predicates.at('my.album.genres.link', genreID)
+      // All the albums
+        prismic.Predicates.at('document.type', 'album'),
+        // Any albums with the medium ID. EX. Typography linked to albums
+        prismic.Predicates.at('my.album.mediums.link', mediumID)
       ], { orderings : '[my.album.date desc]'}
-    ).then(function(products) {
+    ).then(function(albums) {
 
       // Render the listing page
-      res.render('category', {albums: albums.results});
+      res.render('list', {albums: albums.results});
     });
+
   });
 });
 
-// Route that catches any other url and renders the 404 page
+// 404
 app.route('/:url').get(function(req, res) {
   render404(req, res);
 });
