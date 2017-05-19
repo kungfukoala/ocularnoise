@@ -122,7 +122,7 @@ app.get('/artist/:uid', (req, res) => {
 });
 
 // Route for Mediums
-app.route('/mediums/:uid').get(function(req, res) {
+app.get('/mediums/:uid', (req, res) => {
 
   // Define the UID EX. Typography
   var uid = req.params.uid;
@@ -144,6 +144,39 @@ app.route('/mediums/:uid').get(function(req, res) {
         prismic.Predicates.at('document.type', 'album'),
         // Any albums with the medium ID. EX. Typography linked to albums
         prismic.Predicates.at('my.album.mediums.link', mediumID)
+      ], { orderings : '[my.album.date desc]'}
+    ).then(function(albums) {
+
+      // Render the listing page
+      res.render('list', {albums: albums.results});
+    });
+
+  });
+});
+
+// Route for Mediums
+app.get('/genres/:uid', (req, res) => {
+
+  // Define the UID EX. Typography
+  var uid = req.params.uid;
+
+  // Query the Medium by UID EX. Typography
+  req.prismic.api.getByUID('genres', uid).then(function(genre) {
+
+    // Render the 404 if the UID is not found
+    if (!genre) {
+      render404(req, res);
+    }
+
+    // Define the ID
+    var genreID = genre.id;
+
+    // Query
+    req.prismic.api.query([
+      // All the albums
+        prismic.Predicates.at('document.type', 'album'),
+        // Any albums with the medium ID. EX. Typography linked to albums
+        prismic.Predicates.at('my.album.genres.link', genreID)
       ], { orderings : '[my.album.date desc]'}
     ).then(function(albums) {
 

@@ -29,7 +29,7 @@ div.album(data-wio-id=album.id)
       li
         a(href=medium.getLink('link').url(ctx.linkResolver))
           != mediumName
-
+   
     each genre in album.getGroup('album.genres').toArray()
       - var genreLink = genre.getLink('link');
       - var genreName = genreLink.getText('genres.name');

@@ -25,6 +25,9 @@ module.exports = {
     if (doc.type == 'mediums') {
       return '/mediums/' + encodeURIComponent(doc.uid);
     }
+    if (doc.type == 'genres') {
+      return '/genres/' + encodeURIComponent(doc.uid);
+    }
     return '/';
   }
 };
