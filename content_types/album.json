@@ -13,10 +13,8 @@
       }
     },
     "musician" : {
-      "type" : "Link",
+      "type" : "Text",
       "config" : {
-        "select" : "document",
-        "customtypes" : [ "artists" ],
         "label" : "Musician"
       }
     },
@@ -44,6 +42,8 @@
         "fields" : {
           "link" : {
             "config" : {
+              "select" : "document",
+              "customtypes" : [ "artists" ],
               "label" : "Link"
             },
             "type" : "Link"

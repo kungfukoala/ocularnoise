@@ -1,0 +1,16 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Genre Slug"
+      }
+    },
+    "name" : {
+      "config" : {
+        "label" : "Genre"
+      },
+      "type" : "Text"
+    }
+  }
+}

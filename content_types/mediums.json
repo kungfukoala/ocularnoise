@@ -1,0 +1,16 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Medium ID"
+      }
+    },
+    "name" : {
+      "config" : {
+        "label" : "Medium of Art"
+      },
+      "type" : "Text"
+    }
+  }
+}

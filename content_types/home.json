@@ -1,0 +1,22 @@
+{
+  "Main" : {
+    "logo" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : null,
+          "height" : null
+        },
+        "thumbnails" : [ ],
+        "label" : "Logo"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Title of the website"
+      }
+    }
+  }
+}
