@@ -5,10 +5,7 @@ block title
 
 block body
   body.page
-
-    div.home
-      h1.title !{home.getText('home.title')}
     
-        section.main
-          for album in albums
-            include partials/post.pug
+    section.main
+      for album in albums
+        include partials/post.pug

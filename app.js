@@ -129,7 +129,7 @@ app.get('/artist/:uid', (req, res) => {
       // All the albums
         prismic.Predicates.at('document.type', 'album'),
         // Any albums with the medium ID. EX. Typography linked to albums
-        prismic.Predicates.at('my.album.musician', artistID)
+        prismic.Predicates.at('my.album.credits.link', artistID)
       ], queryOptions
     ).then(function(albums) {
 
