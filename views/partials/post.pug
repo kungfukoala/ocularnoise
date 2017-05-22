@@ -1,15 +1,13 @@
 div.album(data-wio-id=album.id)
   - var imageUrl = album.getImage('album.album-cover').url
   - var albumTitle = album.getText('album.title') || 'Untitled'
-  - var artist = album.getLink('album.musician');
-  - var artistName = artist.getText('artists.name');
+  - var artistName = album.getText('album.musician') || 'Untitled'
   img(src=imageUrl alt=albumTitle)
   h2
     a(href=ctx.linkResolver(album))
       != albumTitle
     | by
-    a(href=album.getLink('album.musician').url(ctx.linkResolver))
-      != artistName
+    != artistName
   ul
     each credit in album.getGroup('album.credits').toArray()
       - var creditLink = credit.getLink('link');

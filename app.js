@@ -104,20 +104,42 @@ app.get('/album/:uid', (req, res) => {
   });
 });
 
-/**
-* Route for artist page
-*/
+// Route for Artists
 app.get('/artist/:uid', (req, res) => {
 
+  // Define the UID EX. Typography
   var uid = req.params.uid;
 
-  req.prismic.api.getByUID('artists', uid).then(artist => {
+  // Query the Medium by UID EX. Typography
+  req.prismic.api.getByUID('artists', uid).then(function(artist) {
 
+    // Render the 404 if the UID is not found
     if (!artist) {
       render404(req, res);
     }
 
-    res.render('artists', {artist: artist});
+    // Define the ID
+    var artistID = artist.id;
+    var queryOptions = {
+      orderings: '[my.album.date desc]',
+      fetchLinks: 'artists.name, mediums.name, genres.name'
+    };
+    // Query
+    req.prismic.api.query([
+      // All the albums
+        prismic.Predicates.at('document.type', 'album'),
+        // Any albums with the medium ID. EX. Typography linked to albums
+        prismic.Predicates.at('my.album.musician', artistID)
+      ], queryOptions
+    ).then(function(albums) {
+
+      // Render the listing page
+      res.render('artists', {
+        artist,
+        albums: albums.results
+      });
+    });
+
   });
 });
 

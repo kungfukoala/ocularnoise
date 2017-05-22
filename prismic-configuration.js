@@ -19,6 +19,9 @@ module.exports = {
     if (doc.type == 'album') {
       return '/album/' + encodeURIComponent(doc.uid);
     }
+    if (doc.type == 'musicians') {
+      return '/musician/' + encodeURIComponent(doc.uid);
+    }
     if (doc.type == 'artists') {
       return '/artist/' + encodeURIComponent(doc.uid);
     }

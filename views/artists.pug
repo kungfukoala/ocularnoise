@@ -8,4 +8,8 @@ block body
 
         h1(data-wio-id=artist.id)
           != artist.getText('artists.name') || 'Untitled'
+          
+          
+          for album in albums
+            include partials/post.pug
         
