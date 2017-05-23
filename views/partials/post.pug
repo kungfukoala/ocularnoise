@@ -1,8 +1,18 @@
 div.album(data-wio-id=album.id)
-  - var imageUrl = album.getImage('album.album-cover').url
+  - var desktopURL = album.getImage("album.album-cover").url
+  - var tabletURL = album.getImageView("album.album-cover", "tablet").url
+  - var mobileURL = album.getImageView("album.album-cover", "mobile").url
   - var albumTitle = album.getText('album.title') || 'Untitled'
   - var artistName = album.getText('album.musician') || 'Untitled'
-  img(src=imageUrl alt=albumTitle)
+  
+  picture
+    // mobile
+    source(media='(max-width: 400px)', srcset=mobileURL)
+    // tablet
+    source(media='(max-width: 800px)', srcset=tabletURL)
+    // desktop
+    source(srcset=desktopURL)
+    img(src=desktopURL alt=albumTitle)
   h2
     a(href=ctx.linkResolver(album))
       != albumTitle
