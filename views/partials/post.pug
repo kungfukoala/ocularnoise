@@ -20,15 +20,21 @@ div.album(data-wio-id=album.id)
     | by
     | 
     != artistName
+  if album.getGroup('album.credits')
+    ul
+      each credit in album.getGroup('album.credits').toArray()
+        - var creditLink = credit.getLink('link');
+        - var creditName = creditLink.getText('artists.name');
+        li
+          != credit.getText("label")
+          | 
+          a(href=credit.getLink('link').url(ctx.linkResolver))
+            != creditName
+  elseif
+    | If you know who created the album artwork please submit an issue  
+    a(href='https://github.com/ocularnoise/ocularnoise.github.io/issues/new') on Github.
+    
   ul
-    each credit in album.getGroup('album.credits').toArray()
-      - var creditLink = credit.getLink('link');
-      - var creditName = creditLink.getText('artists.name');
-      li
-        != credit.getText("label")
-        | 
-        a(href=credit.getLink('link').url(ctx.linkResolver))
-          != creditName
     li
       != album.getText('album.record-label') || 'Untitled'
     li

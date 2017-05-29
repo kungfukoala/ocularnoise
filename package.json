@@ -24,6 +24,16 @@
     "url": "http://github.com/prismicio/nodejs-sdk.git"
   },
   "devDependencies": {
-    "eslint": "^3.11.1"
+    "eslint": "^3.11.1",
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-rename": "latest",
+    "gulp-util": "latest",
+    "gulp-watch": "latest"
   }
 }
